@@ -40,9 +40,17 @@ export default class RegisterScreen extends React.Component {
 				<TouchableOpacity style={styles.back} onPress={() => { this.props.navigation.goBack() }} >
 					<Icon name='arrow-left' size={32} color="#FFF"/>
 				</TouchableOpacity>
+
+				<View style={{ position: "absolute", top: 64, alignItems: "center", width: "100%" }}>
+					<Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
+					<TouchableOpacity style={styles.avatar}>
+						{/* ICON A CHANGER */}
+						<Icon name='rocket' size={35} color="#FFF"/>
+					</TouchableOpacity>
+				</View>
 				
 
-					<Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
+					
 
 					<View style={styles.errorMessage}>
 						{this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -151,5 +159,14 @@ const styles = StyleSheet.create({
 			backgroundColor: "rgba(21, 22, 48, 0.1)",
 			alignItems: "center",
 			justifyContent : "center"
+		},
+		avatar: {
+			width: 100,
+			height: 100,
+			borderRadius: 50,
+			backgroundColor: "#045C14",
+			marginTop: 48,
+			justifyContent: "center",
+			alignItems : "center"
 		}
 });
