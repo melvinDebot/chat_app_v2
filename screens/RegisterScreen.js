@@ -1,8 +1,12 @@
 import React from "react";
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar } from "react-native";
+import { Icon } from 'react-native-elements'
 import * as firebase from "firebase";
 
 export default class RegisterScreen extends React.Component {
+	static navigationOptions = {
+    header : null
+  }
 	state = {
 		name: "",
 		email: "",
@@ -24,7 +28,20 @@ export default class RegisterScreen extends React.Component {
 
 	render() {
 		return (
-				<View style={styles.container}>
+			<View style={styles.container}>
+				<StatusBar barStyle="light-content"></StatusBar>
+				<Image source={require("../assets/authHeader.png")}
+          style={{ marginTop: - 116, marginLeft: -50 }}>
+				</Image>
+				<Image source={require("../assets/authFooter.png")}
+          style={{ position: "absolute", bottom: -325, right: -225 }}
+				></Image>
+
+				<TouchableOpacity style={styles.back} onPress={() => { this.props.navigation.goBack() }} >
+					<Icon name='arrow-left' size={32} color="#FFF"/>
+				</TouchableOpacity>
+				
+
 					<Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
 
 					<View style={styles.errorMessage}>
@@ -83,7 +100,7 @@ const styles = StyleSheet.create({
 			flex: 1
 	},
 	greeting: {
-		marginTop: 32,
+		marginTop: -32,
 		fontSize: 18,
 		fontWeight: "400",
 		textAlign: "center"
@@ -123,5 +140,16 @@ const styles = StyleSheet.create({
 			height: 52,
 			alignItems: "center",
 			justifyContent: "center"
+		},
+		back: {
+			position: "absolute",
+			top: 48,
+			left: 32,
+			width: 32,
+			height: 32,
+			borderRadius: 16,
+			backgroundColor: "rgba(21, 22, 48, 0.1)",
+			alignItems: "center",
+			justifyContent : "center"
 		}
 });
