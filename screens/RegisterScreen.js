@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image, StatusBar } from "react-native";
-import { Icon } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome';
 import * as firebase from "firebase";
 
 export default class RegisterScreen extends React.Component {
@@ -38,14 +38,14 @@ export default class RegisterScreen extends React.Component {
 				></Image>
 
 				<TouchableOpacity style={styles.back} onPress={() => { this.props.navigation.goBack() }} >
-					<Icon name='arrow-left' size={32} color="#FFF"/>
+					<Icon name="arrow-left" size={12} color="#FFF" />
 				</TouchableOpacity>
 
 				<View style={{ position: "absolute", top: 64, alignItems: "center", width: "100%" }}>
 					<Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
 					<TouchableOpacity style={styles.avatar}>
 						{/* ICON A CHANGER */}
-						<Icon name='rocket' size={35} color="#FFF"/>
+						<Icon name='plus' size={22} color="#FFF" style={{ marginTop: 6, marginLeft: 2 }}/>
 					</TouchableOpacity>
 				</View>
 				
@@ -89,11 +89,11 @@ export default class RegisterScreen extends React.Component {
 							</View>
 						</View>
 
-					<TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+					<TouchableOpacity style={styles.button} onPress={this.handleSignUp} >
 						<Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
 					</TouchableOpacity>
 
-					<TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }}>
+					<TouchableOpacity style={{ alignSelf: "center", marginTop: 32 }} onPress={() => this.props.navigation.navigate("Login")}>
 						<Text style={{ color: "#414959", fontSize: 13 }}>
 								New to SocialApp? <Text style={{ fontWeight: "500", color: "#045C14" }}>Login</Text>
 						</Text>
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
 			flex: 1
 	},
 	greeting: {
-		marginTop: -32,
+		marginTop: 32,
 		fontSize: 18,
 		fontWeight: "400",
 		textAlign: "center"
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
 			width: 100,
 			height: 100,
 			borderRadius: 50,
-			backgroundColor: "#045C14",
+			backgroundColor: "#ACACB4",
 			marginTop: 48,
 			justifyContent: "center",
 			alignItems : "center"
