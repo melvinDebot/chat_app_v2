@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom';
 import { View, Text, StyleSheet } from 'react-native';
 
-export default class NotificationsScreen extends React.Component{
+export default class NotificationScreen extends React.Component{
   render() {
     return (
       <View style={styles.container}>
